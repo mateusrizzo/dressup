@@ -1,8 +1,8 @@
 const express = require('express');
-const routes = require('routes');
+// const routes = require('routes');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const path = require('path');
+// const path = require('path');
 
 
 const app = express();
