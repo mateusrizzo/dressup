@@ -23,8 +23,9 @@ module.exports = {
             category,
             tags: tags.split(',').map(tags => tags.trim()),
             description,
-            listed: true,
+            listed,
         })
+        console.log(item);
         return res.json(item)
     }
 };
