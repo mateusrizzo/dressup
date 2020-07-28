@@ -15,7 +15,7 @@ module.exports = {
             return res.status(400).json({error: 'user does not exist'});
         }
 
-        const item = Item.create({
+        const item = await Item.create({
             user: user_id,
             thumbnail: filename,
             name,
@@ -25,7 +25,6 @@ module.exports = {
             description,
             listed,
         })
-        console.log(item);
         return res.json(item)
     }
 };
