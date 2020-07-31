@@ -8,9 +8,9 @@ const ItemSchema = new mongoose.Schema({
     tags: [String],
     listed: Boolean,
     description: String,
-    user: {
+    seller: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'Seller'
     }
     }, {
         toJSON: {

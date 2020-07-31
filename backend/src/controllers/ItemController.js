@@ -1,22 +1,22 @@
 const {store} = require('./AdminController');
 
 const Item = require('../models/Item');
-const User = require('../models/User');
+const Seller = require('../models/Seller');
 
 module.exports = {
     async store(req, res){
         const {filename} = req.file;
         const {name, price, category, tags, description, listed} = req.body;
-        const {user_id} = req.headers; 
+        const {seller_id} = req.headers; 
 
-        const user = await User.findById(user_id);
+        const seller = await User.findById(user_id);
 
-        if (!user){
+        if (!seller){
             return res.status(400).json({error: 'user does not exist'});
         }
 
         const item = await Item.create({
-            user: user_id,
+            user: seller_id,
             thumbnail: filename,
             name,
             price,
