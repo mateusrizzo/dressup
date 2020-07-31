@@ -9,14 +9,14 @@ module.exports = {
         const {name, price, category, tags, description, listed} = req.body;
         const {seller_id} = req.headers; 
 
-        const seller = await User.findById(user_id);
+        const seller = await Seller.findById(seller_id);
 
         if (!seller){
             return res.status(400).json({error: 'user does not exist'});
         }
 
         const item = await Item.create({
-            user: seller_id,
+            seller: seller_id,
             thumbnail: filename,
             name,
             price,

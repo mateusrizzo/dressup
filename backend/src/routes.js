@@ -9,6 +9,7 @@ const DashboardController = require('./controllers/DashboardController');
 const routes = express.Router();
 const upload = multer(uploadConfig);
 routes.post('/session', AdminController.store);
+routes.get('/session', AdminController.show)
 routes.post('/item', upload.single('thumbnail'), ItemController.store);
 routes.get('/dashboard', DashboardController.show);
 
