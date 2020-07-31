@@ -2,11 +2,8 @@ const mongoose = require('mongoose');
 
 const BuyerSchema = new mongoose.Schema({
     email: String,
-    Password: String,
-    cart: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Item'
-    }]
+    password: String,
+    name: String,
 });
 
 module.exports = mongoose.model('Buyer', BuyerSchema);
