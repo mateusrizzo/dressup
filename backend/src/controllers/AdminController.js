@@ -6,10 +6,12 @@ module.exports = {
         const{password} = req.body;
         let seller = await Seller.findOne({email, password});
 
-        if (!seller){
-            seller = await Seller.create({email, password});
+        if (seller){
+            return res.status(200).json({error: 'user already exists'});
+        }else{
+            seller = await Seller.create({email, password});   
+            return res.json(seller);
         }
-        return res.json(seller);
     },
     async show(req, res){
         const{email} = req.body;
