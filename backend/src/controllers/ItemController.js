@@ -1,4 +1,4 @@
-const {store} = require('./SessionController');
+const {store} = require('./AdminController');
 
 const Item = require('../models/Item');
 const User = require('../models/User');
