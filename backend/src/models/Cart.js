@@ -9,7 +9,7 @@ const CartSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Buyer'
     },
-    Amount: Number,
+    amount: Number,
 });
 
 module.exports = mongoose.model('Cart', CartSchema);

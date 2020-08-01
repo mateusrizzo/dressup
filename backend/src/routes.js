@@ -15,6 +15,7 @@ routes.get('/admin', AdminController.show);
 routes.post('/user', BuyerController.store);
 routes.get('/user', BuyerController.show);
 routes.post('/cart', CartController.store);
+routes.get('/cart', CartController.index);
 routes.post('/item', upload.single('thumbnail'), ItemController.store);
 routes.get('/dashboard', DashboardController.show);
 

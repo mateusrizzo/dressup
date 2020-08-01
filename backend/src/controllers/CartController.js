@@ -1,7 +1,7 @@
 const Cart = require('../models/Cart');
 const Item = require('../models/Item');
 const Buyer = require('../models/Buyer');
-const { store } = require('./AdminController');
+const { store, show } = require('./AdminController');
 
 module.exports = {
     async store(req, res){
@@ -23,5 +23,15 @@ module.exports = {
         })
         return res.json(cart);
     
-}
+    },
+    async index(req, res){
+        const{buyer_id} = req.headers;
+        
+        const cart = Cart.find(buyer_id);
+        if(!cart){
+            return res.status(400).json({error: 'Cart is empty'});
+        }
+        return res.json(cart);
+
+    }
 }
