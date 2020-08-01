@@ -5,7 +5,8 @@ const AdminController = require('./controllers/AdminController');
 const ItemController = require('./controllers/ItemController');
 const DashboardController = require('./controllers/DashboardController');
 const BuyerController = require('./controllers/BuyerController');
-const CartController = require('./controllers/CartController');
+const AddCartController = require('./controllers/AddCartController');
+const ShowCartController = require('./controllers/ShowCartController');
 
 
 const routes = express.Router();
@@ -14,8 +15,8 @@ routes.post('/admin', AdminController.store);
 routes.get('/admin', AdminController.show);
 routes.post('/user', BuyerController.store);
 routes.get('/user', BuyerController.show);
-routes.post('/cart', CartController.store);
-routes.get('/cart', CartController.index);
+routes.post('/addcart', AddCartController.store);
+routes.get('/cart', ShowCartController.show);
 routes.post('/item', upload.single('thumbnail'), ItemController.store);
 routes.get('/dashboard', DashboardController.show);
 

@@ -23,15 +23,5 @@ module.exports = {
         })
         return res.json(cart);
     
-    },
-    async index(req, res){
-        const{buyer_id} = req.headers;
-        
-        const cart = Cart.find(buyer_id);
-        if(!cart){
-            return res.status(400).json({error: 'Cart is empty'});
-        }
-        return res.json(cart);
-
     }
 }
